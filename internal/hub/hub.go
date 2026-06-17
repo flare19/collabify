@@ -55,11 +55,11 @@ func (h *Hub) Run() {
 			room.clients[client.id] = client
 			room.mu.Unlock()
 
-			room.sendSync(client)
-			room.broadcastPresence()
-
 			go client.readPump()
 			go client.writePump()
+
+			room.sendSync(client)
+			room.broadcastPresence()
 
 			log.Printf("client %s joined room %s", req.username, req.roomID)
 

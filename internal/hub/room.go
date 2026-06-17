@@ -5,7 +5,7 @@ import (
 	"log"
 	"sync"
 
-	"github.com/yourusername/collabify/internal/protocol"
+	"github.com/flare19/collabify/internal/protocol"
 )
 
 type roomMessage struct {
@@ -77,9 +77,7 @@ func (r *Room) handleUpdate(rm roomMessage) {
 	})
 
 	for _, client := range r.clients {
-		if client.id != rm.sender.id {
-			client.send <- outMsg
-		}
+		client.send <- outMsg
 	}
 }
 

@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
-	"github.com/yourusername/collabify/internal/hub"
+	"github.com/flare19/collabify/internal/hub"
 )
 
 var upgrader = websocket.Upgrader{
@@ -17,7 +17,7 @@ var upgrader = websocket.Upgrader{
 }
 
 type WSHandler struct {
-	hub *Hub
+	hub *hub.Hub
 }
 
 func NewWSHandler(h *hub.Hub) *WSHandler {
