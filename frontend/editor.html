@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collabify - Editor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      background: #313244;
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #45475a;
+      flex-shrink: 0;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      color: #cba6f7;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .room-id {
+      background: #1e1e2e;
+      border: 1px solid #45475a;
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.85rem;
+      color: #a6adc8;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .room-id:hover {
+      border-color: #cba6f7;
+    }
+
+    .copy-hint {
+      font-size: 0.75rem;
+      color: #585b70;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    select {
+      background: #1e1e2e;
+      border: 1px solid #45475a;
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      color: #cdd6f4;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select:focus {
+      border-color: #cba6f7;
+    }
+
+    .presence {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: #a6adc8;
+    }
+
+    .presence-dot {
+      width: 8px;
+      height: 8px;
+      background: #a6e3a1;
+      border-radius: 50%;
+    }
+
+    #editor {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .cm-editor {
+      height: 100%;
+    }
+
+    .cm-scroller {
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="logo">Collabify</span>
+      <span class="room-id" id="room-id-display" title="Click to copy"></span>
+      <span class="copy-hint" id="copy-hint"></span>
+    </div>
+    <div class="topbar-right">
+      <select id="lang-select">
+        <option value="javascript">JavaScript</option>
+        <option value="typescript">TypeScript</option>
+        <option value="python">Python</option>
+        <option value="go">Go</option>
+        <option value="java">Java</option>
+        <option value="cpp">C++</option>
+        <option value="rust">Rust</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="json">JSON</option>
+      </select>
+      <div class="presence">
+        <div class="presence-dot"></div>
+        <span id="presence-list">just you</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="editor"></div>
+
+  <script type="module" src="/editor.js"></script>
+</body>
+</html>
