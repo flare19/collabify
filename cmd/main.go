@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/yourusername/collabify/internal/handler"
-	"github.com/yourusername/collabify/internal/hub"
+	"github.com/flare19/collabify/internal/handler"
+	"github.com/flare19/collabify/internal/hub"
 )
 
 func main() {
