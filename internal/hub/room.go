@@ -77,6 +77,7 @@ func (r *Room) handleUpdate(rm roomMessage) {
 	})
 
 	for _, client := range r.clients {
+		log.Printf("broadcasting to %s", client.username)
 		client.send <- outMsg
 	}
 }
